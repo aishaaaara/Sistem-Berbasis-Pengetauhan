@@ -1,11 +1,9 @@
-# Define symptom and disease codes
 kode_penyakit = ["K1", "K2", "K3", "K4"]
 gejala_codes = [
     "J01", "J02", "J03", "J04", "J05", "J06", "J07", "J08", "J09", "J10", "J11", 
     "J12", "J13", "J14", "J15", "J16", "J17", "J18", "J19", "J20"
 ]
 
-# Rules dictionary for disease and corresponding symptoms with their MB values
 rules = {
     "K1": ["J01", "J03", "J08", "J09", "J10", "J11", "J12", "J14", "J15", "J16", "J17", "J18", "J19"],
     "K2": ["J04", "J05", "J06", "J16"],
@@ -13,7 +11,6 @@ rules = {
     "K4": ["J03", "J08", "J13", "J18", "J20"]
 }
 
-# User input dictionary for symptoms and their certainty responses
 user_input = {
     "J01": ["Apakah anda sering menderita sakit kepala?", "Mungkin", 0.4],
     "J02": ["Apakah anda kehilangan nafsu makan?", "Pasti", 1],
