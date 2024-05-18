@@ -28,13 +28,11 @@ evaluasi = [
     [4, 5, 4, 9, 5, 6, 4, 3, 3, 4]   # Komplek 51
 ]
 
-# Konversi ke numpy array
 evaluasi = np.array(evaluasi)
 
-# Menghitung nilai solusi rata-rata (AV)
+# Menentukan rata-rata
 AV = evaluasi.mean(axis=0)
 
-# Inisialisasi array untuk PDA dan NDA
 PDA = np.zeros_like(evaluasi, dtype=float)
 NDA = np.zeros_like(evaluasi, dtype=float)
 
@@ -56,19 +54,15 @@ SN = NDA @ bobot
 NSP = SP / SP.max()
 NSN = 1 - (SN / SN.max())
 
-# Menghitung nilai skor penilaian (AS)
 AS = 0.5 * (NSP + NSN)
 
-# Mengurutkan alternatif berdasarkan nilai AS
 ranking = np.argsort(-AS) + 1
 
-# Buat array indeks alternatif
 indeks_alternatif = np.arange(len(alternatif))
 
-# Urutkan nilai AS dari yang terbesar ke terkecil
+# Mengurutkan nilai kecil > besar
 urutan_terbesar_ke_terkecil = np.argsort(AS)[::-1]
 
-# Menampilkan PDA dan NDA 
 print("Nilai PDA/NDA : ")
 print("+-----------------------------------------------------------------------------+-------------------------------------------------------------------------------+")
 print("|                                 PDA                                         |                                 NDA                                           |")
@@ -83,8 +77,6 @@ for i in range(len(kriteria)):
     print("|")
 print("+-----------------------------------------------------------------------------+-------------------------------------------------------------------------------+")
 
-# Menampilkan hasil SP, SN, NSP, NSN, dan AS dalam satu baris
-# Menampilkan hasil SP, SN, NSP, NSN, dan AS dalam satu baris dengan tabel yang rapi
 print("Menghitung jumlah terbobot PDA / NDA (SP / SN), nilai normalisasi SP / SN (NSP / NSN), dan nilai skor penilaian (AS) dalam satu baris:")
 print("+----------------------+----------------------+----------------------+----------------------+----------------------+")
 print("|         SP           |          SN          |          NSP         |          NSN         |          AS          |")
@@ -96,7 +88,6 @@ print("+----------------------+----------------------+----------------------+---
 
 
 
-# Menampilkan hasil nilai solusi rata-rata (AV) dalam bentuk tabel
 print("Nilai Rata-rata : ")
 print("+--------------------------------------------------------------+---------+")
 print("|                      Kriteria                                |   AV    |")
@@ -106,7 +97,6 @@ for i, nilai in enumerate(AV):
 print("+--------------------------------------------------------------+---------+")
 
 
-# Tampilkan urutan alternatif berdasarkan indeks yang telah diurutkan
 print("Hasil Perangkingan : ")
 print("+----------+-----------------------------+-----------------------------+")
 print("| Rangking |          Alternatif         |           NILAI AS          |")
